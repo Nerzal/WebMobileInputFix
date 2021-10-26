@@ -21,11 +21,32 @@ mergeInto(LibraryManager.library, {
     },
 
     RequestFullScreen: function() {
-        unityInstance.SetFullscreen(1)
+       // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
+       var element = document.querySelector("#unity-container");
+
+        element.requestFullscreen()
+        .then(function() {
+            // element has entered fullscreen mode successfully
+        })
+        .catch(function(error) {
+            // element could not enter fullscreen mode
+            // error message
+            console.log(error.message);
+        });
     },
 
     DisableFullScreen: function() {
-        unityInstance.SetFullscreen(0)
+       // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
+
+       document.exitFullscreen()
+        .then(function() {
+            // element has exited fullscreen mode
+        })
+        .catch(function(error) {
+            // element could not exit fullscreen mode
+            // error message
+            console.log(error.message);
+        });
     },
 
     CloseInputKeyboard: function ()

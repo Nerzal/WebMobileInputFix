@@ -60,7 +60,7 @@ namespace WebGLKeyboard
 
         public void OnPointerDown(PointerEventData pointerEventData)
         {
-            KeyboardController.Instance.RequestKeyboard(this, Text, CharacterLimit, HTMLInputType);
+            KeyboardController.Instance.RequestKeyboard(this, Text, CharacterLimit, HTMLInputType);         
         }
     }
 }

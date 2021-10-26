@@ -20,6 +20,14 @@ mergeInto(LibraryManager.library, {
         Module.WebGLKeyboard.AddOpenWebGLKeyboardListeners();
     },
 
+    RequestFullScreen: function() {
+        unityInstance.SetFullscreen(1)
+    },
+
+    DisableFullScreen: function() {
+        unityInstance.SetFullscreen(0)
+    },
+
     CloseInputKeyboard: function ()
     {
         Module.WebGLKeyboard.inputElement.blur();

@@ -64,6 +64,12 @@ namespace WebGLKeyboard
         [DllImport("__Internal")]
         private static extern void SetSelectionInKeyboard(int start, int end);
 
+        [DllImport("__Internal")]
+        private static extern void RequestFullScreen();
+
+        [DllImport("__Internal")]
+        private static extern void DisableFullScreen();
+
         private void Awake()
         {
             if (instance == null)
@@ -88,6 +94,8 @@ namespace WebGLKeyboard
 
         public void RequestKeyboard(BaseWebGLInputField handler, string initial_text, int characterLimit, KeyboardType type = KeyboardType.text)
         {
+            instance.DisableFullScreen()
+
             if (current_handler == null || current_handler == handler)
             {
                 if (current_handler == null)
@@ -174,6 +182,7 @@ namespace WebGLKeyboard
                 instance.current_handler.OnKeyboardSubmit("" + final_text);
             }
             instance.CloseKeyboard();
+            instance.RequestFullScreen();
         }
     }
 }

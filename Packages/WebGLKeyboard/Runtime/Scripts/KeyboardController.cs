@@ -94,8 +94,9 @@ namespace WebGLKeyboard
 
         public void RequestKeyboard(BaseWebGLInputField handler, string initial_text, int characterLimit, KeyboardType type = KeyboardType.text)
         {
-            instance.DisableFullScreen();
-
+#if UNITY_WEBGL && !UNITY_EDITOR
+            DisableFullScreen();
+#endif
             if (current_handler == null || current_handler == handler)
             {
                 if (current_handler == null)
@@ -158,6 +159,7 @@ namespace WebGLKeyboard
 #if UNITY_WEBGL && !UNITY_EDITOR
             CloseInputKeyboard();
             UnityEngine.WebGLInput.captureAllKeyboardInput = true;
+            RequestFullScreen();
 #endif
         }
 
@@ -182,7 +184,6 @@ namespace WebGLKeyboard
                 instance.current_handler.OnKeyboardSubmit("" + final_text);
             }
             instance.CloseKeyboard();
-            instance.RequestFullScreen();
         }
     }
 }

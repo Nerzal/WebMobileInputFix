@@ -21,6 +21,9 @@ mergeInto(LibraryManager.library, {
     },
 
     RequestFullScreen: function() {
+        if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+            return;
+        }
        // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
        var element = document.querySelector("#unity-container");
 
@@ -36,6 +39,9 @@ mergeInto(LibraryManager.library, {
     },
 
     DisableFullScreen: function() {
+        if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+            return;
+        }
        // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
 
        document.exitFullscreen()

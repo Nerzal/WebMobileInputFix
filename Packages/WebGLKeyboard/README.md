@@ -6,7 +6,7 @@ When you try to interact with any input field in a WebGL application in mobile, 
 
 ## How to install
 Using Git, open the Package Manager window, click on the plus `+` icon, choose "Add package from git URL..." and add this URL:
-`https://github.com/dantasulisses/WebMobileInputFix.git?path=/Packages/WebGLKeyboard`
+`https://github.com/Nerzal/WebMobileInputFix.git?path=/Packages/WebGLKeyboard`
 
 ## How to use
 Simply add the `UGUIWebGLInputField` component to GameObjects with uGUI input fields, or `TMPWebGLInputField` component to GameObjects with TextMesh Pro input fields.

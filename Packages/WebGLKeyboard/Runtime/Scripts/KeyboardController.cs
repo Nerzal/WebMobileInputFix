@@ -94,7 +94,7 @@ namespace WebGLKeyboard
 
         public void RequestKeyboard(BaseWebGLInputField handler, string initial_text, int characterLimit, KeyboardType type = KeyboardType.text)
         {
-            instance.DisableFullScreen()
+            instance.DisableFullScreen();
 
             if (current_handler == null || current_handler == handler)
             {

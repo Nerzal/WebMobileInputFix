@@ -10,8 +10,8 @@ mergeInto(LibraryManager.library, {
         Module.WebGLKeyboard.formElement.style.visibility="visible";
         var input = Module.WebGLKeyboard.inputElement;
         input.value = '';
-        input.type = Pointer_stringify(type);
-        input.value = Pointer_stringify(currentValue);
+        input.type = UTF8ToString(type);
+        input.value = UTF8ToString(currentValue);
         if (maxlength <= 0)
         {
           maxlength = -1;

@@ -27,15 +27,19 @@ mergeInto(LibraryManager.library, {
        // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
        var element = document.querySelector("#unity-container");
 
-        element.requestFullscreen()
-        .then(function() {
-            // element has entered fullscreen mode successfully
-        })
-        .catch(function(error) {
-            // element could not enter fullscreen mode
-            // error message
-            console.log(error.message);
-        });
+        if(element.requestFullscreen) {
+            element.requestFullscreen()
+            .then(function() {
+                // element has entered fullscreen mode successfully
+            })
+            .catch(function(error) {
+                // element could not enter fullscreen mode
+                // error message
+                console.log(error.message);
+            });
+        } else if(element.webkitRequestFullscreen) {  // iOS Safari
+            element.webkitRequestFullscreen();
+        }       
     },
 
     DisableFullScreen: function() {
@@ -44,15 +48,19 @@ mergeInto(LibraryManager.library, {
         }
        // Module.ccall("SetFullscreen", null, [ "number" ], [ fullscreen ])
 
-       document.exitFullscreen()
-        .then(function() {
-            // element has exited fullscreen mode
-        })
-        .catch(function(error) {
-            // element could not exit fullscreen mode
-            // error message
-            console.log(error.message);
-        });
+        if(document.exitFullscreen) {
+            document.exitFullscreen()
+            .then(function() {
+                // element has exited fullscreen mode
+            })
+            .catch(function(error) {
+                // element could not exit fullscreen mode
+                // error message
+                console.log(error.message);
+            });
+        } else if(document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
     },
 
     CloseInputKeyboard: function ()

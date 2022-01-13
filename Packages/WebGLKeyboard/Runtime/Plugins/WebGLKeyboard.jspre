@@ -1,6 +1,10 @@
 Module["WebGLKeyboard"] = {};
 
 Module.WebGLKeyboard.InjectWebGLKeyboardElements = function () {
+    if(!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))){
+        return;
+    }
+
     var formElement = document.createElement("form");
     formElement.id = "keyboard_input_form";
     formElement.autocomplete = "off";

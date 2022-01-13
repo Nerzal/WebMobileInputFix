@@ -1,12 +1,20 @@
 mergeInto(LibraryManager.library, {
     SetWebGLKeyboardCallbacks: function (submitInput, updateInput)
     {
+        if(!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))){
+            return;
+        }
+
         Module.WebGLKeyboard.submitInputPtr = submitInput;
         Module.WebGLKeyboard.updateInputPtr = updateInput;
     },
 
     OpenInputKeyboard: function (currentValue, type, maxlength)
     {
+        if(!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))){
+            return;
+        }
+
         Module.WebGLKeyboard.formElement.style.visibility="visible";
         var input = Module.WebGLKeyboard.inputElement;
         input.value = '';

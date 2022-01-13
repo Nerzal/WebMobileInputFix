@@ -57,11 +57,19 @@ Module.WebGLKeyboard.GetUTF8String = function (inputStr) {
 Module.WebGLKeyboard.InjectWebGLKeyboardElements();
 
 Module.WebGLKeyboard.AddOpenWebGLKeyboardListeners = function () {
+    if(!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))){
+        return;
+    }
+
     document.addEventListener('mouseup', Module.WebGLKeyboard.OpenWebGLKeyboard, { once: true });
     document.addEventListener('touchend', Module.WebGLKeyboard.OpenWebGLKeyboard, { once: true });
 }
 
 Module.WebGLKeyboard.OpenWebGLKeyboard = function () {
+    if(!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))){
+        return;
+    }
+
     Module.WebGLKeyboard.inputElement.click();
     Module.WebGLKeyboard.inputElement.focus();
     document.removeEventListener('mouseup', Module.WebGLKeyboard.OpenWebGLKeyboard, { once: true });

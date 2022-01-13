@@ -1,7 +1,7 @@
 {
   "name": "com.ulidantas.webgl-keyboard",
   "displayName": "WebGL Keyboard",
-  "version": "0.0.11",
+  "version": "0.0.10",
   "unity": "2021.2",
   "description": "Enable mobile input (virtual keyboard) be triggered by Input Fields.",
   "keywords": [
